@@ -8,8 +8,8 @@ def spoof_pkt (pkt) :
   if pkt[TCP].payload:
     data = pkt[TCP].payload.load
     print("***%s, length: %d" % (data,len(data)))
-#Replace a pattern
-    newdata = data. replace(b'seedlabs', b'AAAAAAAA')
+
+    newdata = data. replace(b'seedlabs', b'AAAAAAAA') #Replace 
     send (newpkt/newdata)
   else:
     send (newpkt)
