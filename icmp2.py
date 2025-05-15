@@ -17,3 +17,4 @@ f= 'tcp and ether src 02:42:0a: 09:00:05'
 pkt = sniff(iface='eth0', filter=f, prn=spoof_pkt)
 #victim nc (ip add) 9090
 #user1 nc -lp 9090
+#attack on routerataacker after runcode1 in atacker
